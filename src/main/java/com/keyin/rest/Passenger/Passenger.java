@@ -1,9 +1,7 @@
 package com.keyin.rest.Passenger;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import com.keyin.rest.City.City;
+import jakarta.persistence.*;
 
 
 @Entity
@@ -15,7 +13,8 @@ public class Passenger {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private int city_id;
+    @OneToOne
+    private City city_id;
 
     public Passenger() {
     }
@@ -25,7 +24,7 @@ public class Passenger {
         this.passenger_id = passenger_id;
     }
 
-    public Passenger(int passenger_id, String firstName, String lastName, String phoneNumber, int city_id) {
+    public Passenger(int passenger_id, String firstName, String lastName, String phoneNumber, City city_id) {
         this.passenger_id = passenger_id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -65,11 +64,11 @@ public class Passenger {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getCity_id() {
+    public City getCity_id() {
         return city_id;
     }
 
-    public void setCity_id(int city_id) {
+    public void setCity_id(City city_id) {
         this.city_id = city_id;
     }
 }
