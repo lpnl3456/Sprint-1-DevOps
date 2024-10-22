@@ -20,6 +20,7 @@ public class Passenger {
     public Passenger() {
     }
 
+
     public Passenger(int passenger_id) {
         this.passenger_id = passenger_id;
     }
