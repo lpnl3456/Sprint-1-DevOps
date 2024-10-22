@@ -1,9 +1,7 @@
 package com.keyin.rest.Airport;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import com.keyin.rest.City.City;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -16,7 +14,8 @@ public class AirPort {
     private int id;
     private String name;
     private String code;
-    private int city_id;
+    @OneToOne
+    private City city_id;
 
     public AirPort() {
     }
@@ -55,11 +54,11 @@ public class AirPort {
         this.code = code;
     }
 
-    public int getCity_id() {
+    public City getCity_id() {
         return city_id;
     }
 
-    public void setCity_id(int city_id) {
+    public void setCity_id(City city_id) {
         this.city_id = city_id;
     }
 
