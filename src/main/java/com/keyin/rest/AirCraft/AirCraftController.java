@@ -15,26 +15,28 @@ public class AirCraftController {
 
     @GetMapping("/aircraft")
     public List<AirCraft> getAllAirPorts(){
-        return airCraftService.getAllAirports();
+
+        return airCraftService.getAllAirCraft();
     }
 
     @GetMapping("/aircraft/{id}")
-    public AirPort getCourseByID(@PathVariable long id) {
-        return airCraftService.findAirPortById(id);
+    public AirCraft getAirCraftByID(@PathVariable long id) {
+
+        return airCraftService.findAirCraftById(id);
     }
 
-    @PostMapping("/airport")
-    public AirPort createCourse(@RequestBody AirPort newAirPort) {
-        return airCraftService.createAirPort(newAirPort);
+    @PostMapping("/aircraft")
+    public AirCraft createAirCraft(@RequestBody AirCraft newAirCraft) {
+        return airCraftService.createAirCraft(newAirCraft);
     }
 
-    @PutMapping("/airport/{id}")
-    public ResponseEntity<AirPort> updateAirPort(@PathVariable long id, @RequestBody AirPort airPort) {
-        return ResponseEntity.ok(airCraftService.updateAirPort(id, airPort));
+    @PutMapping("/aircraft/{id}")
+    public ResponseEntity<AirCraft> updateAirCraft(@PathVariable long id, @RequestBody AirCraft airCraft) {
+        return ResponseEntity.ok(airCraftService.updateAirCraft(id, airCraft));
     }
 
-    @DeleteMapping("/airport/{id}")
-    public void deleteAirById(@PathVariable long id) {
-        airCraftService.deleteAirPortById(id);
+    @DeleteMapping("/aircraft/{id}")
+    public void deleteAirCraftById(@PathVariable long id) {
+        airCraftService.deleteCraftById(id);
     }
 }
