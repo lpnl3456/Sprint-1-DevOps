@@ -1,6 +1,7 @@
 package com.keyin.rest.Airport;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +22,18 @@ public class AirPortController {
         return airPortService.findAirPortById(id);
     }
 
-    @PostMapping("/course")
+    @PostMapping("/airport")
     public AirPort createCourse(@RequestBody AirPort newAirPort) {
         return airPortService.createAirPort(newAirPort);
+    }
+
+    @PutMapping("/airport/{id}")
+    public ResponseEntity<AirPort> updateAirPort(@PathVariable long id, @RequestBody AirPort airPort) {
+        return ResponseEntity.ok(airPortService.updateAirPort(id, airPort));
+    }
+
+    @DeleteMapping("/airport/{id}")
+    public void deleteAirById(@PathVariable long id) {
+        airPortService.deleteAirPortById(id);
     }
 }
