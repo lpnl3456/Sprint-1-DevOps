@@ -10,7 +10,7 @@ public class City {
     @Id
     @SequenceGenerator(name = "city_sequence", sequenceName = "city_sequence", allocationSize = 1, initialValue = 1)
     @GeneratedValue(generator = "city_sequence")
-    private int city_id;
+    private long city_id;
     private String name;
     private String state;
     private int population;
@@ -18,22 +18,22 @@ public class City {
     public City(){
     }
 
-    public City(int city_id) {
+    public City(long city_id) {
         this.city_id = city_id;
     }
 
-    public City(int city_id, String name, String state, int population) {
+    public City(long city_id, String name, String state, int population) {
         this.city_id = city_id;
         this.name = name;
         this.state = state;
         this.population = population;
     }
 
-    public int getCity_id() {
+    public long getCity_id() {
         return city_id;
     }
 
-    public void setCity_id(int city_id) {
+    public void setCity_id(long city_id) {
         this.city_id = city_id;
     }
 
