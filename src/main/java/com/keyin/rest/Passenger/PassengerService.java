@@ -12,11 +12,12 @@ import java.util.Optional;
 public class PassengerService {
         @Autowired
         private PassengerRepository passengerRepository;
+
         @Autowired
         private CityService cityService;
 
     public Passenger findByName(String name) {
-            return passengerRepository.findByName(name);
+            return passengerRepository.findByFirstName(name);
         }
 
         public List<Passenger> getAllPassengers() {
