@@ -13,7 +13,7 @@ public class Passenger {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    @OneToOne
+    @ManyToOne
     private City city;
 
     public Passenger() {
