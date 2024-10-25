@@ -14,8 +14,8 @@ public class AirPort {
     private int id;
     private String name;
     private String code;
-    @OneToOne
-    private City city_id;
+    @ManyToOne
+    private City city;
 
     public AirPort() {
     }
@@ -24,10 +24,11 @@ public class AirPort {
         this.code = code;
     }
 
-    public AirPort(int id, String name, String code) {
+    public AirPort(int id, String name, String code, City city) {
         this.id = id;
         this.name = name;
         this.code = code;
+        this.city = city;
     }
 
     public int getId() {
@@ -55,11 +56,11 @@ public class AirPort {
     }
 
     public City getCity_id() {
-        return city_id;
+        return city;
     }
 
     public void setCity_id(City city_id) {
-        this.city_id = city_id;
+        this.city = city_id;
     }
 
     @Override
@@ -75,4 +76,3 @@ public class AirPort {
 //        return Objects.hash(code);
 //    }
 }
-

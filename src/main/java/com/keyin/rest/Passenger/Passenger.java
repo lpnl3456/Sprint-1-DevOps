@@ -14,7 +14,7 @@ public class Passenger {
     private String lastName;
     private String phoneNumber;
     @OneToOne
-    private City city_id;
+    private City city;
 
     public Passenger() {
     }
@@ -24,12 +24,12 @@ public class Passenger {
         this.passenger_id = passenger_id;
     }
 
-    public Passenger(int passenger_id, String firstName, String lastName, String phoneNumber, City city_id) {
+    public Passenger(int passenger_id, String firstName, String lastName, String phoneNumber, City city) {
         this.passenger_id = passenger_id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        this.city_id = city_id;
+        this.city = city;
     }
 
     public int getPassenger_id() {
@@ -65,10 +65,10 @@ public class Passenger {
     }
 
     public City getCity_id() {
-        return city_id;
+        return city;
     }
 
     public void setCity_id(City city_id) {
-        this.city_id = city_id;
+        this.city = city_id;
     }
 }
