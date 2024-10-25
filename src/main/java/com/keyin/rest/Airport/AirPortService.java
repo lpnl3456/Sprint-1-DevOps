@@ -26,6 +26,10 @@ public class AirPortService {
 
         return airPortOptional.orElse(null);
     }
+    public List<AirPort> findAirPortsByCityID(City city){
+        List<AirPort> airPortOptional = airPortRepository.findByCity(city);
+        return airPortOptional;
+    }
 
     public List<AirPort> findAirPortsByCityID(City city){
         List<AirPort> airPortOptional = airPortRepository.findByCity(city);

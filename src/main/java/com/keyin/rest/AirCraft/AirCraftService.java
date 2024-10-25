@@ -27,6 +27,12 @@ public class AirCraftService {
         return airCraftOptional.orElse(null);
     }
 
+    public AirCraft findAirCraftByType(String type) {
+        Optional<AirCraft> airCraftOptional = airCraftRepository.findByType(type);
+
+        return airCraftOptional.orElse(null);
+    }
+
     public AirCraft createAirCraft(AirCraft newAirCraft) {
         return airCraftRepository.save(newAirCraft);
     }

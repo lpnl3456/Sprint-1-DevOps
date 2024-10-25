@@ -24,10 +24,11 @@ public class AirPort {
         this.code = code;
     }
 
-    public AirPort(int id, String name, String code) {
+    public AirPort(int id, String name, String code, City city) {
         this.id = id;
         this.name = name;
         this.code = code;
+        this.city = city;
     }
 
     public int getId() {
@@ -75,4 +76,3 @@ public class AirPort {
 //        return Objects.hash(code);
 //    }
 }
-

@@ -30,6 +30,11 @@ public class PassengerService {
             return passengerOptional.orElse(null);
         }
 
+    public List<Passenger> findPassengerByCityID(City city){
+        List<Passenger> passengertOptional = passengerRepository.findByCity(city);
+        return passengertOptional;
+    }
+
         public void deletePassengerById(long id) {
             passengerRepository.deleteById(id);
         }
