@@ -50,7 +50,7 @@ public class LandingService {
             Landing landingToUpdate = landingToUpdateOptional.get();
 
             landingToUpdate.setLandingLocation(updatedLanding.getLandingLocation());
-            landingToUpdate.setLandingTime(updatedLanding.getLandingTime());
+//            landingToUpdate.setLandingTime(updatedLanding.getLandingTime());
 
 
             return landingRepository.save(landingToUpdate);

@@ -1,5 +1,7 @@
 package com.keyin.rest.FlightDetails;
 
+
+import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.Landing.Landing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

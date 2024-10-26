@@ -43,7 +43,7 @@ public class TakeOffService {
             TakeOff takeOffToUpdate = takeOffToUpdateOptional.get();
 
             takeOffToUpdate.setTakeOffLocation(updatedTakeOff.getTakeOffLocation());
-            takeOffToUpdate.setTakeOffTime(updatedTakeOff.getTakeOffTime());
+//            takeOffToUpdate.setTakeOffTime(updatedTakeOff.getTakeOffTime());
 
 
             return takeOffRepository.save(takeOffToUpdate);

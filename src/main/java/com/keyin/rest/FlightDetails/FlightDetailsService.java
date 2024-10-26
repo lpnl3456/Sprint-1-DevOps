@@ -3,10 +3,12 @@ package com.keyin.rest.FlightDetails;
 import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.AirCraft.AirCraftService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class FlightDetailsService {
     @Autowired
     private FlightDetailsRepository flightDetailsRepository;
@@ -24,6 +26,12 @@ public class FlightDetailsService {
         Optional<FlightDetails> flightOptional = flightDetailsRepository.findById(id);
 
         return flightOptional.orElse(null);
+    }
+
+    public List<FlightDetails> getFlightByAirCraft(AirCraft airCraft) {
+        List<FlightDetails> flightDetails = flightDetailsRepository.findByAirCraft(airCraft);
+
+        return flightDetails;
     }
 
 

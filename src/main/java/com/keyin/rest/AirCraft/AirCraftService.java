@@ -1,7 +1,7 @@
 package com.keyin.rest.AirCraft;
 
 import com.keyin.rest.Airport.AirPort;
-import com.keyin.rest.City.City;
+
 import com.keyin.rest.City.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
