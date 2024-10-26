@@ -31,10 +31,7 @@ public class AirPortService {
         return airPortOptional;
     }
 
-    public List<AirPort> findAirPortsByCityID(City city){
-        List<AirPort> airPortOptional = airPortRepository.findByCity(city);
-        return airPortOptional;
-    }
+
 
     public AirPort createAirPort(AirPort newAirPort) {
         String cityName = newAirPort.getCity_id().getName();

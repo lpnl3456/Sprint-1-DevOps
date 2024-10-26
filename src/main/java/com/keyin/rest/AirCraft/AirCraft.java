@@ -1,10 +1,13 @@
 package com.keyin.rest.AirCraft;
 
 import com.keyin.rest.Airport.AirPort;
+import com.keyin.rest.City.City;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+
+import java.util.Optional;
 
 @Entity
 public class AirCraft {

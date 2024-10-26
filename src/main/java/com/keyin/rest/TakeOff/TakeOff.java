@@ -15,7 +15,7 @@ public class TakeOff {
 
     @ManyToOne
     AirPort takeOffLocation;
-    Date takeOffTime;
+//    Date takeOffTime;
 
     public long getTakeOff_id() {
         return takeOff_id;
@@ -33,11 +33,11 @@ public class TakeOff {
         this.takeOffLocation = takeOffLocation;
     }
 
-    public Date getTakeOffTime() {
-        return takeOffTime;
-    }
-
-    public void setTakeOffTime(Date takeOffTime) {
-        this.takeOffTime = takeOffTime;
-    }
+//    public Date getTakeOffTime() {
+//        return takeOffTime;
+//    }
+//
+//    public void setTakeOffTime(Date takeOffTime) {
+//        this.takeOffTime = takeOffTime;
+//    }
 }
