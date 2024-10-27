@@ -2,6 +2,7 @@ package com.keyin.rest.FlightDetails;
 
 import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.AirCraft.AirCraftService;
+import com.keyin.rest.Passenger.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,12 @@ public class FlightDetailsService {
         List<FlightDetails> flightDetails = flightDetailsRepository.findByAirCraft(airCraft);
 
         return flightDetails;
+    }
+
+    public List<FlightDetails> findFlightByPassenger(Passenger passenger){
+        List<FlightDetails> flightOptional = flightDetailsRepository.findByPassengers(passenger);
+
+        return flightOptional;
     }
 
 
@@ -76,4 +83,5 @@ public class FlightDetailsService {
         }
         return null;
     }
+
 }
