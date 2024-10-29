@@ -4,11 +4,8 @@ import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.AirCraft.AirCraftService;
 import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.Airport.AirPortService;
-import com.keyin.rest.City.City;
-import com.keyin.rest.CityReport.CityReport;
 import com.keyin.rest.FlightDetails.FlightDetails;
 import com.keyin.rest.FlightDetails.FlightDetailsService;
-import com.keyin.rest.Passenger.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +18,8 @@ public class AirCraftReportService {
     private FlightDetailsService flightDetailsService;
     @Autowired
     private AirCraftService airCraftService;
+    @Autowired
+    private AirPortService airPortService;
 
     public AirCraftReport createAirCraftReport(long aircraftId){
 
@@ -50,6 +49,21 @@ public class AirCraftReportService {
     }
 
 
+    public List<AirCraftReport> createAllAirCraftsReport(){
+        List<AirCraftReport> airCraftReports = new ArrayList<AirCraftReport>();
 
+        List<AirCraft> airCrafts = airCraftService.getAllAirCraft();
+
+        for(AirCraft airCraft: airCrafts) {
+            AirCraftReport airCraftReport = new AirCraftReport();
+            List<AirPort> airPortsForReport = (List<AirPort>) airPortService.findAirPortsByAirCraftID(airCraft);
+            if (!airPortsForReport.isEmpty()) {
+                airCraftReport.setAircraft(airCraft);
+                airCraftReport.setAirports(airPortsForReport);
+                airCraftReports.add(airCraftReport);
+            }
+        }
+        return airCraftReports;
+    }
 
 }

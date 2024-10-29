@@ -1,5 +1,6 @@
 package com.keyin.rest.Airport;
 
+import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.City.City;
 import com.keyin.rest.City.CityRepository;
 import com.keyin.rest.City.CityService;
@@ -28,6 +29,11 @@ public class AirPortService {
     }
     public List<AirPort> findAirPortsByCityID(City city){
         List<AirPort> airPortOptional = airPortRepository.findByCity(city);
+        return airPortOptional;
+    }
+
+    public List<AirPort> findAirPortsByAirCraftID(AirCraft airCraft){
+        List<AirPort> airPortOptional = airPortRepository.findByAircraft(airCraft);
         return airPortOptional;
     }
 
