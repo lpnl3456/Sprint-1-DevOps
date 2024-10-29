@@ -29,11 +29,13 @@ public class FlightDetailsService {
         return flightOptional.orElse(null);
     }
 
+
     public List<FlightDetails> getFlightByAirCraft(AirCraft airCraft) {
         List<FlightDetails> flightDetails = flightDetailsRepository.findByAirCraft(airCraft);
 
         return flightDetails;
     }
+
 
     public List<FlightDetails> findFlightByPassenger(Passenger passenger){
         List<FlightDetails> flightOptional = flightDetailsRepository.findByPassengers(passenger);

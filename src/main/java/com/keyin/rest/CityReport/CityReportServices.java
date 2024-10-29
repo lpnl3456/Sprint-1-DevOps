@@ -9,6 +9,7 @@ import com.keyin.rest.Passenger.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,5 +44,22 @@ public class CityReportServices {
             cityPassengertReport.setPassangers(residentsForReport);
         }
         return cityPassengertReport;
+    }
+
+    public List<CityReport> createAllCityAirPortReport(){
+        List<CityReport> cityAirPortReports = new ArrayList<CityReport>();
+
+        List<City> cities = cityService.getAllCities();
+
+        for(City city: cities) {
+            CityReport cityAirPortReport = new CityReport();
+            List<AirPort> airPortsForReport = (List<AirPort>) airportService.findAirPortsByCityID(city);
+            if (!airPortsForReport.isEmpty()) {
+                cityAirPortReport.setCity(city);
+                cityAirPortReport.setAirports(airPortsForReport);
+                cityAirPortReports.add(cityAirPortReport);
+            }
+        }
+        return cityAirPortReports;
     }
 }

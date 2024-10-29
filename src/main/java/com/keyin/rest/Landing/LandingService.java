@@ -39,6 +39,7 @@ public class LandingService {
     public Landing createLanding(Landing newLanding) {
 
 
+
         return landingRepository.save(newLanding);
     }
 
