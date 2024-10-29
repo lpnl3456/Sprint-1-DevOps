@@ -15,7 +15,7 @@ public class Landing {
 
     @ManyToOne
     AirPort landingLocation;
-    Date landingTime;
+   Date landingTime;
 
     public long getLanding_id() {
         return landing_id;
@@ -33,7 +33,7 @@ public class Landing {
         this.landingLocation = landingLocation;
     }
 
-    public Date getLandingTime() {
+   public Date getLandingTime() {
         return landingTime;
     }
 
