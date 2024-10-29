@@ -17,6 +17,6 @@ public interface FlightDetailsRepository extends CrudRepository<FlightDetails, L
     public List<FlightDetails> findByAirCraft(AirCraft aircraft);
     public List<FlightDetails> findByPassengers(Passenger passenger);
 
-    public List<FlightDetails> findByPassengers(Passenger passenger);
+
 
 }

@@ -49,21 +49,6 @@ public class FlightDetailsService {
     }
 
     public FlightDetails createFlight(FlightDetails newFlight) {
-        String airCraftType = newFlight.getAirCraft().getType();
-
-        if(airCraftType != null){
-            AirCraft airCraft = airCraftService.findAirCraftByType(airCraftType);
-
-
-            if(airCraft == null){
-                airCraft = airCraftService.createAirCraft(newFlight.getAirCraft());
-            }
-
-            newFlight.setAirCraft(airCraft);
-        }
-
-
-
 
         return flightDetailsRepository.save(newFlight);
     }

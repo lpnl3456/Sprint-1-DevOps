@@ -13,7 +13,7 @@ public class PassengerAirCraftReportController {
     @Autowired
     private PassengerAirCraftReportService passengerAirCraftReportService;
 
-    @GetMapping("passenger_aircraft_report/{passengerID")
+    @GetMapping("passenger_aircraft_report/{passengerID}")
     public PassengerAirCraftReport generatePassengerAirCraftReport(@PathVariable long passengerID) {
         return  passengerAirCraftReportService.createPassengerAirCraftReport(passengerID);
     }
