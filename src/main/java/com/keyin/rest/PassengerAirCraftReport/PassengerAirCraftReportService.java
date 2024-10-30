@@ -39,4 +39,31 @@ public class PassengerAirCraftReportService {
         return passengerAirCraftReport;
 
     }
+
+    public List<PassengerAirCraftReport> createAllPassengerAirCraftReport() {
+        List<PassengerAirCraftReport> passengerAirCraftReports = new ArrayList<PassengerAirCraftReport>();
+        List<AirCraft> airCrafts = new ArrayList<AirCraft>();
+
+        List<Passenger> passengers = passengerService.getAllPassengers();
+
+
+        for (Passenger passenger: passengers) {
+            PassengerAirCraftReport passengerAirCraftReport = new PassengerAirCraftReport();
+            List<FlightDetails> passengerFlight = flightDetailsService.findFlightByPassenger(passenger);
+
+            if (!passengerFlight.isEmpty()) {
+                passengerAirCraftReport.setPassenger(passenger);
+
+                for (FlightDetails flight : passengerFlight) {
+                    if (!airCrafts.contains(flight.getAirCraft())) {
+                        airCrafts.add(flight.getAirCraft());
+                    }
+                }
+                passengerAirCraftReport.setAirCrafts(airCrafts);
+            }
+            passengerAirCraftReports.add(passengerAirCraftReport);
+        }
+        return passengerAirCraftReports;
+
+    }
 }
