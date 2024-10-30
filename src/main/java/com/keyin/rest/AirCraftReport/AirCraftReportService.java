@@ -21,6 +21,8 @@ public class AirCraftReportService {
     private FlightDetailsService flightDetailsService;
     @Autowired
     private AirCraftService airCraftService;
+    @Autowired
+    private AirPortService airPortService;
 
     public AirCraftReport createAirCraftReport(long aircraftId){
 
@@ -49,6 +51,22 @@ public class AirCraftReportService {
         return airCraftReport;
     }
 
+    public List<AirCraftReport> createAllAirCraftsReport(){
+        List<AirCraftReport> airCraftReports = new ArrayList<AirCraftReport>();
+
+        List<AirCraft> airCrafts = airCraftService.getAllAirCraft();
+
+        for(AirCraft airCraft: airCrafts) {
+            AirCraftReport airCraftReport = new AirCraftReport();
+            List<AirPort> airPortsForReport = (List<AirPort>) airPortService.findAirPortById(airCraft.getAirCraft_id());
+            if (!airPortsForReport.isEmpty()) {
+                airCraftReport.setAircraft(airCraft);
+                airCraftReport.setAirports(airPortsForReport);
+                airCraftReports.add(airCraftReport);
+            }
+        }
+        return airCraftReports;
+    }
 
 
 
