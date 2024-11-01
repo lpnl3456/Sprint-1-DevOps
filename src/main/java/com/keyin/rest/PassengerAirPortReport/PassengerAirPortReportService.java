@@ -47,4 +47,36 @@ public class PassengerAirPortReportService {
         }
         return passengerAirPortReport;
     }
+
+    public List<PassengerAirPortReport> createAllPassengerAirPortReport(){
+
+        List<PassengerAirPortReport> passengerAirPortReports = new ArrayList<PassengerAirPortReport>();
+
+        List<Passenger> passengers = passengerService.getAllPassengers();
+
+        for(Passenger passenger: passengers){
+            PassengerAirPortReport passengerAirPortReport = new PassengerAirPortReport();
+            List<FlightDetails> passengerFlight = flightDetailsService.findFlightByPassenger(passenger);
+            List<AirPort> airports = new ArrayList<AirPort>();
+
+            if(!passengerFlight.isEmpty()) {
+            passengerAirPortReport.setPassenger(passenger);
+
+            for (FlightDetails flight : passengerFlight) {
+
+                if (!airports.contains(flight.getLanding().getLandingLocation())) {
+                    airports.add(flight.getLanding().getLandingLocation());
+                }
+
+                if (!airports.contains(flight.getTakeOff().getTakeOffLocation())) {
+                    airports.add(flight.getTakeOff().getTakeOffLocation());
+                }
+            }
+        }
+
+            passengerAirPortReport.setAirports(airports);
+            passengerAirPortReports.add(passengerAirPortReport);
+        }
+        return passengerAirPortReports;
+    }
 }
