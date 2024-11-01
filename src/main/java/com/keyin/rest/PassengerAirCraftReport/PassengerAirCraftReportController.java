@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class PassengerAirCraftReportController {
@@ -16,6 +18,11 @@ public class PassengerAirCraftReportController {
     @GetMapping("passenger_aircraft_report/{passengerID}")
     public PassengerAirCraftReport generatePassengerAirCraftReport(@PathVariable long passengerID) {
         return  passengerAirCraftReportService.createPassengerAirCraftReport(passengerID);
+    }
+
+    @GetMapping("passenger_aircraft_report")
+    public List<PassengerAirCraftReport> generateAllPassengerAirCraftReport() {
+        return  passengerAirCraftReportService.createAllPassengerAirCraftReport();
     }
 
 
