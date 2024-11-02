@@ -42,13 +42,14 @@ public class PassengerAirCraftReportService {
 
     public List<PassengerAirCraftReport> createAllPassengerAirCraftReport() {
         List<PassengerAirCraftReport> passengerAirCraftReports = new ArrayList<PassengerAirCraftReport>();
-        List<AirCraft> airCrafts = new ArrayList<AirCraft>();
 
         List<Passenger> passengers = passengerService.getAllPassengers();
 
 
         for (Passenger passenger: passengers) {
             PassengerAirCraftReport passengerAirCraftReport = new PassengerAirCraftReport();
+            List<AirCraft> airCrafts = new ArrayList<AirCraft>();
+
             List<FlightDetails> passengerFlight = flightDetailsService.findFlightByPassenger(passenger);
 
             if (!passengerFlight.isEmpty()) {
