@@ -55,12 +55,13 @@ public class AirCraftReportService {
     public List<AirCraftReport> createAllAirCraftReport(){
 
         List<AirCraftReport>airCraftReports = new ArrayList<AirCraftReport>();
-        List<AirPort> airports = new ArrayList<AirPort>();
 
         List<AirCraft> airCrafts = airCraftService.getAllAirCraft();
 
         for(AirCraft aircraft: airCrafts) {
             AirCraftReport airCraftReport = new AirCraftReport();
+            List<AirPort> airports = new ArrayList<AirPort>();
+
 
             List<FlightDetails> airCraftFlight = flightDetailsService.getFlightByAirCraft(aircraft);
 
@@ -86,21 +87,6 @@ public class AirCraftReportService {
     }
 
 
-    public List<AirCraftReport> createAllAirCraftsReport(){
-        List<AirCraftReport> airCraftReports = new ArrayList<AirCraftReport>();
 
-        List<AirCraft> airCrafts = airCraftService.getAllAirCraft();
-
-        for(AirCraft airCraft: airCrafts) {
-            AirCraftReport airCraftReport = new AirCraftReport();
-            List<AirPort> airPortsForReport = (List<AirPort>) airPortService.findAirPortById(airCraft.getAirCraft_id());
-            if (!airPortsForReport.isEmpty()) {
-                airCraftReport.setAircraft(airCraft);
-                airCraftReport.setAirports(airPortsForReport);
-                airCraftReports.add(airCraftReport);
-            }
-        }
-        return airCraftReports;
-    }
 
 }
