@@ -10,7 +10,6 @@ public class CityReport {
 
     private City city;
     private List<AirPort> airports;
-    private List<Passenger> passangers;
 
     public List<AirPort> getAirports() {
         return airports;
@@ -18,14 +17,6 @@ public class CityReport {
 
     public void setAirports(List<AirPort> airports) {
         this.airports = airports;
-    }
-
-    public List<Passenger> getPassangers() {
-        return passangers;
-    }
-
-    public void setPassangers(List<Passenger> passangers) {
-        this.passangers = passangers;
     }
 
     public City getCity() {
