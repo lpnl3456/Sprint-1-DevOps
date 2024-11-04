@@ -34,17 +34,6 @@ public class CityReportServices {
         return cityAirPortReport;
     }
 
-    public CityReport createCityPassengerReport(long cityId){
-        CityReport cityPassengertReport = new CityReport();
-        City city = cityService.getCityById(cityId);
-
-        List<Passenger> residentsForReport = (List<Passenger>) passengerService.findPassengerByCityID(city);
-        if(!residentsForReport.isEmpty()){
-            cityPassengertReport.setCity(residentsForReport.get(0).getCity_id());
-            cityPassengertReport.setPassangers(residentsForReport);
-        }
-        return cityPassengertReport;
-    }
 
     public List<CityReport> createAllCityAirPortReport(){
         List<CityReport> cityAirPortReports = new ArrayList<CityReport>();

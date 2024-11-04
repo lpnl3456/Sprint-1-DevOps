@@ -12,17 +12,14 @@ public class CityReportController {
     @Autowired
     private CityReportServices cityReportService;
 
-    @GetMapping("city_report/airport/{cityId}")
+    @GetMapping("city_report/{cityId}")
     public CityReport generateCityAirPortReport(@PathVariable long cityId){
         return cityReportService.createCityAirPortReport(cityId);
     }
 
-    @GetMapping("city_report/resident/{cityId}")
-    public CityReport generateCityPassengerReport(@PathVariable long cityId){
-        return cityReportService.createCityPassengerReport(cityId);
-    }
 
-    @GetMapping("city_report/airports")
+
+    @GetMapping("city_report")
     public List<CityReport> generateAllCityAirportReport(){
         return cityReportService.createAllCityAirPortReport();
     }
