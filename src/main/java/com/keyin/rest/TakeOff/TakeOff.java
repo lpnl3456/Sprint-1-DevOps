@@ -1,5 +1,6 @@
 package com.keyin.rest.TakeOff;
 
+import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.City.City;
 import jakarta.persistence.*;
@@ -15,7 +16,25 @@ public class TakeOff {
 
     @ManyToOne
     AirPort takeOffLocation;
-//    Date takeOffTime;
+    Date takeOffTime;
+    @ManyToOne
+    AirCraft aircraft;
+
+    public Date getTakeOffTime() {
+        return takeOffTime;
+    }
+
+    public void setTakeOffTime(Date takeOffTime) {
+        this.takeOffTime = takeOffTime;
+    }
+
+    public AirCraft getAircraft() {
+        return aircraft;
+    }
+
+    public void setAircraft(AirCraft aircraft) {
+        this.aircraft = aircraft;
+    }
 
     public long getTakeOff_id() {
         return takeOff_id;
@@ -32,12 +51,5 @@ public class TakeOff {
     public void setTakeOffLocation(AirPort takeOffLocation) {
         this.takeOffLocation = takeOffLocation;
     }
+    }
 
-//    public Date getTakeOffTime() {
-//        return takeOffTime;
-//    }
-//
-//    public void setTakeOffTime(Date takeOffTime) {
-//        this.takeOffTime = takeOffTime;
-//    }
-}

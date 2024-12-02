@@ -1,5 +1,6 @@
 package com.keyin.rest.Landing;
 
+import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.Airport.AirPortRepository;
 import com.keyin.rest.Airport.AirPortService;
 import com.keyin.rest.City.City;
@@ -16,6 +17,7 @@ public class LandingService {
         @Autowired
         private LandingRepository landingRepository;
 
+
     @Autowired
     private AirPortService airPortService;
 
@@ -30,6 +32,13 @@ public class LandingService {
 
             return landingOptional.orElse(null);
         }
+
+    public List<Landing> getLandingByAirport(String airportName) {
+        AirPort airport = airPortService.findAirPortByName(airportName);
+        List<Landing> landingOptional = landingRepository.findByLandingLocation(airport);
+
+        return landingOptional;
+    }
 
 
         public void deleteLandingById(long id) {

@@ -3,6 +3,7 @@ package com.keyin.rest.Airport;
 import com.keyin.rest.City.City;
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +15,7 @@ public class AirPort {
     private int id;
     private String name;
     private String code;
+    private List<String> gates;
     @ManyToOne
     private City city;
 
@@ -61,6 +63,14 @@ public class AirPort {
 
     public void setCity_id(City city_id) {
         this.city = city_id;
+    }
+
+    public List<String> getGates() {
+        return gates;
+    }
+
+    public void setGates(List<String> gates) {
+        this.gates = gates;
     }
 
     @Override

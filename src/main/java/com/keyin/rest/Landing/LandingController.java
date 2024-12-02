@@ -23,6 +23,11 @@ public class LandingController {
         return landingService.getLandingById(id);
     }
 
+    @GetMapping("/landing/airport/{airportName}")
+    public List<Landing> getLandingByID(@PathVariable String airportName) {
+        return landingService.getLandingByAirport(airportName);
+    }
+
     @PostMapping("/landing")
     public Landing createPassenger(@RequestBody Landing newLanding) {
         return landingService.createLanding(newLanding);

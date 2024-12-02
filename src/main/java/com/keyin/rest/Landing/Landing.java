@@ -1,5 +1,6 @@
 package com.keyin.rest.Landing;
 
+import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.City.City;
 import jakarta.persistence.*;
@@ -16,6 +17,8 @@ public class Landing {
     @ManyToOne
     AirPort landingLocation;
     Date landingTime;
+    @ManyToOne
+    AirCraft aircraft;
 
 
 
@@ -36,6 +39,14 @@ public class Landing {
         this.landingLocation = landingLocation;
     }
 
+
+    public AirCraft getAircraft() {
+        return aircraft;
+    }
+
+    public void setAircraft(AirCraft aircraft) {
+        this.aircraft = aircraft;
+    }
 
    public Date getLandingTime() {
         return landingTime;
