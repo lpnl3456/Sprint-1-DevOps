@@ -1,5 +1,6 @@
 package com.keyin.rest.TakeOff;
 
+import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.Airport.AirPortService;
 import com.keyin.rest.Landing.Landing;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ import java.util.Optional;
 public class TakeOffService {
         @Autowired
         private TakeOffRepository takeOffRepository;
+
+        @Autowired
+        private AirPortService airPortService;
 
 
 
@@ -35,6 +39,16 @@ public class TakeOffService {
 
         return takeOffRepository.save(newTakeOff);
     }
+
+
+    public List<TakeOff> getTakeOffByAirport(String airportName) {
+        AirPort airport = airPortService.findAirPortByName(airportName);
+        List<TakeOff> takeOffOptional = takeOffRepository.findByTakeOffLocation(airport);
+
+        return takeOffOptional;
+    }
+
+
 
     public TakeOff update(long id, TakeOff updatedTakeOff) {
         Optional<TakeOff> takeOffToUpdateOptional =takeOffRepository.findById(id);

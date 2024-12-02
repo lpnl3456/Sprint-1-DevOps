@@ -20,6 +20,11 @@ public class TakeOffController {
         return takeOffService.getAllTakeOff();
     }
 
+    @GetMapping("/takeoff/airport/{airportName}")
+    public List<TakeOff> getTakeOffByID(@PathVariable String airportName) {
+        return takeOffService.getTakeOffByAirport(airportName);
+    }
+
     @GetMapping("/takeoff/{id}")
     public TakeOff getTakeOffByID(@PathVariable long id) {
         return takeOffService.getTakeOffById(id);
