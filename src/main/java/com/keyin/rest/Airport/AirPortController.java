@@ -22,6 +22,11 @@ public class AirPortController {
         return airPortService.findAirPortById(id);
     }
 
+    @GetMapping("/searchAirportByName")
+    public AirPort getAirportByName(@RequestParam String name) {
+        return airPortService.findAirPortByName(name);
+    }
+
     @PostMapping("/airport")
     public AirPort createCourse(@RequestBody AirPort newAirPort) {
         return airPortService.createAirPort(newAirPort);
