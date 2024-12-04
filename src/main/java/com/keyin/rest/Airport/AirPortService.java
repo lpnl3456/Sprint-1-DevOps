@@ -40,17 +40,17 @@ public class AirPortService {
 
 
     public AirPort createAirPort(AirPort newAirPort) {
-        String cityName = newAirPort.getCity_id().getName();
+        String cityName = newAirPort.getCity().getName();
 
         if(cityName != null){
             City city = cityService.findByName(cityName);
 
 
             if(city == null){
-                city = cityService.createCity(newAirPort.getCity_id());
+                city = cityService.createCity(newAirPort.getCity());
             }
 
-            newAirPort.setCity_id(city);
+            newAirPort.setCity(city);
         }
 
         return airPortRepository.save(newAirPort);
@@ -65,7 +65,7 @@ public class AirPortService {
 
             airPortToUpdate.setName(updatedAirPort.getName());
             airPortToUpdate.setCode(updatedAirPort.getCode());
-            airPortToUpdate.setCity_id(cityService.getCityById(updatedAirPort.getCity_id().getCity_id()));
+            airPortToUpdate.setCity(cityService.getCityById(updatedAirPort.getCity().getCity_id()));
 
             return airPortRepository.save(airPortToUpdate);
         }

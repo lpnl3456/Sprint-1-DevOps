@@ -1,8 +1,10 @@
 package com.keyin.rest.Airport;
 
 import com.keyin.rest.City.City;
+import com.keyin.rest.Gate.Gate;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,7 +17,8 @@ public class AirPort {
     private int id;
     private String name;
     private String code;
-    private List<String> gates;
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    private List<Gate> gateList = new ArrayList<>();
     @ManyToOne
     private City city;
 
@@ -57,20 +60,20 @@ public class AirPort {
         this.code = code;
     }
 
-    public City getCity_id() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity_id(City city_id) {
+    public void setCity(City city_id) {
         this.city = city_id;
     }
 
-    public List<String> getGates() {
-        return gates;
+    public List<Gate> getGates() {
+        return gateList;
     }
 
-    public void setGates(List<String> gates) {
-        this.gates = gates;
+    public void setGates(List<Gate> gates) {
+        this.gateList = gates;
     }
 
     @Override
