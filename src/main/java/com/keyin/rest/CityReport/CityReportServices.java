@@ -28,7 +28,7 @@ public class CityReportServices {
 
         List<AirPort> airPortsForReport = (List<AirPort>) airportService.findAirPortsByCityID(city);
         if(!airPortsForReport.isEmpty()){
-            cityAirPortReport.setCity(airPortsForReport.get(0).getCity_id());
+            cityAirPortReport.setCity(airPortsForReport.get(0).getCity());
             cityAirPortReport.setAirports(airPortsForReport);
         }
         return cityAirPortReport;
