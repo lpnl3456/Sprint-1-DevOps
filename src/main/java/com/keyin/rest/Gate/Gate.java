@@ -17,6 +17,11 @@ public class Gate {
 
     }
 
+    public Gate(int id, String gateName) {
+        this.id = id;
+        this.gateName = gateName;
+    }
+
     public String getGateName() {
         return gateName;
     }
