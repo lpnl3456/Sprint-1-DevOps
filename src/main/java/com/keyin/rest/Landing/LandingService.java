@@ -47,7 +47,7 @@ public class LandingService {
 
     public Landing createLanding(Landing newLanding) {
 
-
+        newLanding.setLandingLocation(airPortService.findAirPortByName(newLanding.getLandingLocation().getName()));
 
         return landingRepository.save(newLanding);
     }
