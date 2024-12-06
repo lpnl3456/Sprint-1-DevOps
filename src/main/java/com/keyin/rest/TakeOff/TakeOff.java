@@ -3,6 +3,7 @@ package com.keyin.rest.TakeOff;
 import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.City.City;
+import com.keyin.rest.Gate.Gate;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -19,6 +20,8 @@ public class TakeOff {
     Date takeOffTime;
     @ManyToOne
     AirCraft aircraft;
+    @ManyToOne
+    Gate gate;
 
     public Date getTakeOffTime() {
         return takeOffTime;
@@ -51,5 +54,13 @@ public class TakeOff {
     public void setTakeOffLocation(AirPort takeOffLocation) {
         this.takeOffLocation = takeOffLocation;
     }
+
+    public Gate getGate() {
+        return gate;
     }
+
+    public void setGate(Gate gate) {
+        this.gate = gate;
+    }
+}
 

@@ -3,6 +3,7 @@ package com.keyin.rest.Landing;
 import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.City.City;
+import com.keyin.rest.Gate.Gate;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -19,6 +20,9 @@ public class Landing {
     Date landingTime;
     @ManyToOne
     AirCraft aircraft;
+
+    @ManyToOne
+    Gate gate;
 
 
 
@@ -56,13 +60,13 @@ public class Landing {
         this.landingTime = landingTime;
     }
 
-//    public Date getLandingTime() {
-//        return landingTime;
-//    }
-//
-//    public void setLandingTime(Date landingTime) {
-//        this.landingTime = landingTime;
-//    }
+    public Gate getGate() {
+        return gate;
+    }
+
+    public void setGate(Gate gate) {
+        this.gate = gate;
+    }
 
 
 
