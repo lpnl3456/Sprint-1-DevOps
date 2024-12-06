@@ -36,6 +36,7 @@ public class TakeOffService {
 
     public TakeOff createTakeOff(TakeOff newTakeOff) {
 
+        newTakeOff.setTakeOffLocation(airPortService.findAirPortByName(newTakeOff.getTakeOffLocation().getName()));
 
         return takeOffRepository.save(newTakeOff);
     }
@@ -47,6 +48,7 @@ public class TakeOffService {
 
         return takeOffOptional;
     }
+
 
 
 

@@ -2,7 +2,9 @@ package com.keyin.rest.FlightDetails;
 
 import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.AirCraft.AirCraftService;
+import com.keyin.rest.Landing.LandingService;
 import com.keyin.rest.Passenger.Passenger;
+import com.keyin.rest.TakeOff.TakeOffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class FlightDetailsService {
 
     @Autowired
     private AirCraftService airCraftService;
+    @Autowired
+    private TakeOffService takeOffService;
+    @Autowired
+    private LandingService landingService;
 
 
 
@@ -50,6 +56,12 @@ public class FlightDetailsService {
 
     public FlightDetails createFlight(FlightDetails newFlight) {
 
+        newFlight.setAirCraft(airCraftService.findAirCraftById(newFlight.getAirCraft().getAirCraft_id()));
+        newFlight.setTakeOff(takeOffService.createTakeOff(newFlight.getTakeOff()));
+        newFlight.setLanding(landingService.createLanding(newFlight.getLanding()));
+
+        newFlight.getLanding().setAircraft(newFlight.getAirCraft());
+        newFlight.getTakeOff().setAircraft(newFlight.getAirCraft());
         return flightDetailsRepository.save(newFlight);
     }
 
