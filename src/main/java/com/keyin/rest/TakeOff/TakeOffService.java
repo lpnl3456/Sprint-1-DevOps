@@ -2,6 +2,7 @@ package com.keyin.rest.TakeOff;
 
 import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.Airport.AirPortService;
+import com.keyin.rest.Gate.GateService;
 import com.keyin.rest.Landing.Landing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class TakeOffService {
 
         @Autowired
         private AirPortService airPortService;
+
+        @Autowired
+        private GateService gateService;
 
 
 
@@ -36,6 +40,7 @@ public class TakeOffService {
 
     public TakeOff createTakeOff(TakeOff newTakeOff) {
 
+            newTakeOff.setGate(gateService.findGateByGateName(newTakeOff.getGate().getGateName()));
         newTakeOff.setTakeOffLocation(airPortService.findAirPortByName(newTakeOff.getTakeOffLocation().getName()));
 
         return takeOffRepository.save(newTakeOff);

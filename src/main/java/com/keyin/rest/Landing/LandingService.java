@@ -5,6 +5,7 @@ import com.keyin.rest.Airport.AirPortRepository;
 import com.keyin.rest.Airport.AirPortService;
 import com.keyin.rest.City.City;
 import com.keyin.rest.City.CityService;
+import com.keyin.rest.Gate.GateService;
 import com.keyin.rest.Passenger.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ import java.util.Optional;
 public class LandingService {
         @Autowired
         private LandingRepository landingRepository;
+    @Autowired
+    private GateService gateService;
 
 
     @Autowired
@@ -46,6 +49,8 @@ public class LandingService {
         }
 
     public Landing createLanding(Landing newLanding) {
+
+        newLanding.setGate(gateService.findGateByGateName(newLanding.getGate().getGateName()));
 
         newLanding.setLandingLocation(airPortService.findAirPortByName(newLanding.getLandingLocation().getName()));
 
