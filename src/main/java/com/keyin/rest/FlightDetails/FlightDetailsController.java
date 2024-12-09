@@ -39,4 +39,15 @@ public class FlightDetailsController {
     public void deleteFlightById(@PathVariable long id) {
         flightDetailService.deleteFlightById(id);
     }
+
+    @GetMapping("/find_take_off_by_airportName/{airportName}")
+    public List<FlightDetails> getFlightTakeOffsByAirportName(@PathVariable String airportName) {
+        return flightDetailService.getTakeOffByAirport(airportName);
+    }
+
+    @GetMapping("/find_landing_by_airportName/{airportName}")
+    public List<FlightDetails> getFlightLandingByAirportName(@PathVariable String airportName) {
+        return flightDetailService.getLandingByAirport(airportName);
+    }
+
 }

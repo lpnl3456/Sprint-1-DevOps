@@ -2,12 +2,15 @@ package com.keyin.rest.FlightDetails;
 
 import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.AirCraft.AirCraftService;
+import com.keyin.rest.Landing.Landing;
 import com.keyin.rest.Landing.LandingService;
 import com.keyin.rest.Passenger.Passenger;
+import com.keyin.rest.TakeOff.TakeOff;
 import com.keyin.rest.TakeOff.TakeOffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +41,32 @@ public class FlightDetailsService {
 
     public List<FlightDetails> getFlightByAirCraft(AirCraft airCraft) {
         List<FlightDetails> flightDetails = flightDetailsRepository.findByAirCraft(airCraft);
+
+        return flightDetails;
+    }
+
+    public List<FlightDetails> getTakeOffByAirport(String airportName) {
+        List<TakeOff> takeOffList = takeOffService.getTakeOffByAirport(airportName);
+
+        List<FlightDetails> flightDetails = new ArrayList<FlightDetails>();
+
+        for(TakeOff takeOffFlights: takeOffList){
+
+            flightDetails.add(flightDetailsRepository.findByTakeOff(takeOffFlights));
+        }
+
+        return flightDetails;
+    }
+
+    public List<FlightDetails> getLandingByAirport(String airportName) {
+        List<Landing> landingList = landingService.getLandingByAirport(airportName);
+
+        List<FlightDetails> flightDetails = new ArrayList<FlightDetails>();
+
+        for(Landing landingFlight: landingList){
+
+            flightDetails.add(flightDetailsRepository.findByLanding(landingFlight));
+        }
 
         return flightDetails;
     }
