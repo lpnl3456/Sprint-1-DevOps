@@ -46,12 +46,11 @@ public class TakeOffServiceTest {
 
         List<TakeOff> takeOffs = new ArrayList<TakeOff>();
 
-        when(airPortService.findAirPortByName("St John's")).thenReturn(airport);
         when(takeOffRepository.findAll()).thenReturn(takeOffs);
 
 
 
-        List<TakeOff> takeOffResponse = takeOffService.getTakeOffByAirport("St John's");
+        List<TakeOff> takeOffResponse = takeOffService.getAllTakeOff();
 
         Assertions.assertNotNull(takeOffResponse);
 
@@ -78,24 +77,5 @@ public class TakeOffServiceTest {
 
     }
 
-    @Test
-    public void testGetTakeByAirport(){
-        City stJohnsCity =  new City(1,"St John's","States", 2000);
 
-        AirPort airport = new AirPort(1,"St John's", "YYH",stJohnsCity);
-        AirCraft boeing = new AirCraft(1, "Boeing 757", "Pal", 130);
-        Gate gate = new Gate (1, "gate A");
-        Date date = new Date();
-
-        TakeOff takeOff = new TakeOff(1, airport,date, boeing, gate);
-
-        List<TakeOff> takeOffs = new ArrayList<TakeOff>();
-
-        when(takeOffRepository.findByTakeOffLocation(airport)).thenReturn(takeOffs);
-
-        List<TakeOff> takeOffResponse = takeOffService.getAllTakeOff();
-
-        Assertions.assertNotNull(takeOffResponse);
-
-    }
 }

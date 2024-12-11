@@ -26,6 +26,14 @@ public class FlightDetails {
     @OneToOne
     Landing landing;
 
+    public FlightDetails(long flight_id, AirCraft airCraft, List<Passenger> passengers, TakeOff takeOff, Landing landing) {
+        this.flight_id = flight_id;
+        this.airCraft = airCraft;
+        this.passengers = passengers;
+        this.takeOff = takeOff;
+        this.landing = landing;
+    }
+
     public Landing getLanding() {
         return landing;
     }
