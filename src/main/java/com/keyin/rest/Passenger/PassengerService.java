@@ -45,11 +45,6 @@ public class PassengerService {
         if(cityName != null){
             City city = cityService.findByName(cityName);
 
-
-            if(city == null){
-                city = cityService.createCity(newPassenger.getCity_id());
-            }
-
             newPassenger.setCity_id(city);
         }
 
