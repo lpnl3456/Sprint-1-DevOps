@@ -20,8 +20,8 @@ public class TakeOffController {
         return takeOffService.getAllTakeOff();
     }
 
-    @GetMapping("/takeoff/airport/{airportName}")
-    public List<TakeOff> getTakeOffByID(@PathVariable String airportName) {
+    @GetMapping("/searchTakeOffByAirport")
+    public List<TakeOff> getTakeOffByAirportName(@RequestParam String airportName) {
         return takeOffService.getTakeOffByAirport(airportName);
     }
 
@@ -29,6 +29,7 @@ public class TakeOffController {
     public TakeOff getTakeOffByID(@PathVariable long id) {
         return takeOffService.getTakeOffById(id);
     }
+
 
     @PostMapping("/takeoff")
     public TakeOff createTakeOff(@RequestBody TakeOff newTakeOff) {

@@ -25,7 +25,13 @@ public class Landing {
     Gate gate;
 
 
-
+    public Landing(long landing_id, AirPort landingLocation, Date landingTime, AirCraft aircraft, Gate gate) {
+        this.landing_id = landing_id;
+        this.landingLocation = landingLocation;
+        this.landingTime = landingTime;
+        this.aircraft = aircraft;
+        this.gate = gate;
+    }
 
     public long getLanding_id() {
         return landing_id;

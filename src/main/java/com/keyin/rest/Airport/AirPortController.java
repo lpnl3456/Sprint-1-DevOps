@@ -25,7 +25,7 @@ public class AirPortController {
     }
 
     @GetMapping("/airport/{id}")
-    public AirPort getCourseByID(@PathVariable long id) {
+    public AirPort getAirportByID(@PathVariable long id) {
         return airPortService.findAirPortById(id);
     }
 

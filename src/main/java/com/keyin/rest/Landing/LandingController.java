@@ -23,8 +23,8 @@ public class LandingController {
         return landingService.getLandingById(id);
     }
 
-    @GetMapping("/landing/airport/{airportName}")
-    public List<Landing> getLandingByID(@PathVariable String airportName) {
+    @GetMapping("/searchLandingByAirport")
+    public List<Landing> getLandingByAirportName(@RequestParam String airportName) {
         return landingService.getLandingByAirport(airportName);
     }
 
