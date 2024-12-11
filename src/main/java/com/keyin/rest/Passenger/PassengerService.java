@@ -16,9 +16,6 @@ public class PassengerService {
         @Autowired
         private CityService cityService;
 
-    public Passenger findByName(String name) {
-            return passengerRepository.findByFirstName(name);
-        }
 
         public List<Passenger> getAllPassengers() {
             return (List<Passenger>) passengerRepository.findAll();
@@ -29,11 +26,6 @@ public class PassengerService {
 
             return passengerOptional.orElse(null);
         }
-
-    public List<Passenger> findPassengerByCityID(City city){
-        List<Passenger> passengertOptional = passengerRepository.findByCity(city);
-        return passengertOptional;
-    }
 
         public void deletePassengerById(long id) {
             passengerRepository.deleteById(id);
