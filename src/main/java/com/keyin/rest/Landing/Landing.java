@@ -24,6 +24,8 @@ public class Landing {
     @ManyToOne
     Gate gate;
 
+    public Landing() {
+    }
 
     public Landing(long landing_id, AirPort landingLocation, Date landingTime, AirCraft aircraft, Gate gate) {
         this.landing_id = landing_id;
