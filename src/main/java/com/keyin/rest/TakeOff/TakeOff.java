@@ -23,6 +23,9 @@ public class TakeOff {
     @ManyToOne
     Gate gate;
 
+    public TakeOff() {
+    }
+
     public TakeOff(long takeOff_id, AirPort takeOffLocation, Date takeOffTime, AirCraft aircraft, Gate gate) {
         this.takeOff_id = takeOff_id;
         this.takeOffLocation = takeOffLocation;
