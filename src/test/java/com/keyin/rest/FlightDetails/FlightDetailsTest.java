@@ -1,17 +1,12 @@
-package com.keyin.rest.TakeOffDetails;
+package com.keyin.rest.FlightDetails;
 
 import com.keyin.rest.AirCraft.AirCraft;
 import com.keyin.rest.Airport.AirPort;
 import com.keyin.rest.City.City;
-import com.keyin.rest.FlightDetails.FlightDetails;
-import com.keyin.rest.FlightDetails.FlightDetailsRepository;
-import com.keyin.rest.FlightDetails.FlightDetailsService;
 import com.keyin.rest.Gate.Gate;
 import com.keyin.rest.Landing.Landing;
 import com.keyin.rest.Passenger.Passenger;
 import com.keyin.rest.TakeOff.TakeOff;
-import com.keyin.rest.TakeOff.TakeOffRepository;
-import com.keyin.rest.TakeOff.TakeOffService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,7 +22,7 @@ import java.util.Optional;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class TakeOffDetailsTest {
+public class FlightDetailsTest {
 
     @Mock
     private FlightDetailsRepository flightDetailsRepository;
